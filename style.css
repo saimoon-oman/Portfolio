@@ -1,258 +1,397 @@
+/* 
+  Root Variables:
+  These custom properties (CSS variables) define reusable values for color and background throughout the document.
+  By using variables, you can easily adjust these values in one place instead of changing them throughout the code.
+*/
 :root {
-    --text-color: #1a1c20;
-    --link-color: #4a76ee;
-    --background-color: #eeeff1;
+    --text-color: #1a1c20;  /* Dark grayish color for general text */
+    --link-color: #4a76ee;  /* Blue color for links */
+    --background-color: #eeeff1;  /* Light gray background color */
 }
 
+/* 
+  Universal Reset:
+  This rule applies to all elements, ensuring consistent margins and padding across browsers.
+  box-sizing: border-box ensures that padding and borders are included in the element's total width and height, preventing layout issues.
+*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* 
+  HTML Scroll Behavior:
+  Enables smooth scrolling when navigating through anchor links.
+*/
 html {
     scroll-behavior: smooth;
 }
 
+/* 
+  Body Styling:
+  Setting the font to 'Poppins' ensures a modern sans-serif look, and applying the background color from the root variable.
+*/
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--background-color);
 }
 
+/* 
+  Link Styling:
+  Links are styled to have no underline (text-decoration: none) and inherit the link color defined in the root variable.
+*/
 a {
     text-decoration: none;
     color: var(--link-color);
 }
 
-/* Navbar */
+/* 
+  Navbar Styles:
+  Creates a flex container to position the navbar elements with space between and aligned vertically.
+*/
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px;
-    height: 80px;;
+    display: flex; /* Flexbox layout for the navbar */
+    justify-content: space-between; /* Distribute navbar items across the container */
+    align-items: center; /* Align items vertically in the center */
+    padding: 0 50px; /* Horizontal padding for spacing */
+    height: 80px; /* Navbar height */
 }
 
 nav .left a {
-    color: var(--text-color);
-    font-size: 22px;
-    font-weight: 600;
+    color: var(--text-color); /* Set text color for navbar links */
+    font-size: 22px; /* Set font size for links */
+    font-weight: 600; /* Make the text bold */
 }
 
 nav .right a {
-    color: var(--text-color);
-    margin: 0 10px;
+    color: var(--text-color); /* Set text color for navbar right-side links */
+    margin: 0 10px; /* Add horizontal margin between links */
 }
 
 nav .right a:last-child {
-    color: var(--background-color);
-    background-color: var(--text-color);
-    padding: 5px 15px;
-    border-radius: 5px;
+    color: var(--background-color); /* Last link has background color from root */
+    background-color: var(--text-color); /* Set background color to text color */
+    padding: 5px 15px; /* Add padding for spacing */
+    border-radius: 5px; /* Round corners of the button */
 }
 
 nav .right a span {
-    margin-left: 5px;
+    margin-left: 5px; /* Space between icon/text in the right nav links */
 }
 
-/* section 1: intro */
+/* 
+  Intro Section:
+  Uses flexbox to align the text and profile image side-by-side.
+  The gap property ensures a space between the two flex items.
+*/
 .intro {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px;
-    margin: 50px 0;
-    margin-bottom: 100px;
-    gap: 40px;
+    justify-content: space-between; /* Distribute the items with space between */
+    align-items: center; /* Align items vertically in the center */
+    padding: 0 50px; /* Horizontal padding */
+    margin: 50px 0; /* Vertical margins to separate the section */
+    margin-bottom: 100px; /* Extra space at the bottom */
+    gap: 40px; /* Gap between text and profile image */
 }
 
 .intro .text {
-    flex: 5;
+    flex: 5; /* The text section takes up more space */
 }
 
 .intro .text h2 {
-    font-size: 45px;
+    font-size: 45px; /* Large heading text size */
 }
 
 .intro .text .links {
-    margin-top: 25px;
+    margin-top: 25px; /* Margin for spacing links */
 }
 
 .intro .text .links a {
-    display: inline-block;
-    padding: 5px 10px;
-    border: 2px solid var(--link-color);
-    border-radius: 5px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    transition: 0.1s;
+    display: inline-block; /* Links are displayed inline but can have block properties */
+    padding: 5px 10px; /* Padding inside links for spacing */
+    border: 2px solid var(--link-color); /* Border with link color */
+    border-radius: 5px; /* Rounded corners for each link */
+    margin-right: 10px; /* Space between links */
+    margin-bottom: 10px; /* Space between links vertically */
+    transition: 0.1s; /* Smooth transition effect on hover */
 }
 
 .intro .text .links a:hover {
-    color: var(--text-color);
-    border: 2px solid var(--text-color);
+    color: var(--text-color); /* Change text color on hover */
+    border: 2px solid var(--text-color); /* Change border color on hover */
 }
 
 .intro .profilepic {
-    flex: 2;
+    flex: 2; /* The profile picture section takes up less space */
     display: flex;
-    justify-content: right;
+    justify-content: right; /* Align the profile picture to the right */
 }
 
 .intro .profilepic img {
-    width: 350px;
-    border-radius: 50%;
+    width: 350px; /* Fixed width for the image */
+    border-radius: 50%; /* Make the image round */
 }
 
-/* section 2: skills */
+/* 
+  Skills Section:
+  Similar to the intro section, but here we align skills cells (items) in a flexible and responsive manner.
+*/
 .skills-section {
-    padding: 0 50px;
-    margin-bottom: 100px;
+    padding: 0 50px; /* Horizontal padding */
+    margin-bottom: 100px; /* Bottom margin to separate from next section */
 }
 
 .skills-section h2 {
-    text-align: center;
-    font-size: 35px;
+    text-align: center; /* Center align the heading */
+    font-size: 35px; /* Font size for the section heading */
 }
 
 .skills-section .text {
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: center; /* Center align the description text */
+    margin-bottom: 20px; /* Add margin below the text */
 }
 
 .skills-section .cells {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex; /* Use flexbox for skill cells */
+    justify-content: center; /* Center the cells horizontally */
+    flex-wrap: wrap; /* Allow the cells to wrap to new lines */
 }
 
 .skills-section .cells .cell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 200px;
-    padding: 10px 20px;
-    margin: 10px;
-    border: 1.5px solid #d3d3d3;
-    border-radius: 5px;
+    display: flex; /* Flexbox for each individual skill cell */
+    justify-content: center; /* Center content inside each cell */
+    align-items: center; /* Align items vertically in the center */
+    gap: 10px; /* Gap between the icon and text */
+    width: 200px; /* Fixed width for each skill cell */
+    padding: 10px 20px; /* Padding inside each cell */
+    margin: 10px; /* Margin between cells */
+    border: 1.5px solid #d3d3d3; /* Light gray border */
+    border-radius: 5px; /* Rounded corners for each cell */
 }
 
 .skills-section .cells .cell span {
-    font-size: 18px;
+    font-size: 18px; /* Font size for the skill name */
 }
 
 .skills-section .cells .cell img {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-    border-radius: 2px;
+    width: 30px; /* Fixed width for skill icons */
+    height: 30px; /* Fixed height for skill icons */
+    object-fit: contain; /* Ensure the icon retains its aspect ratio */
+    border-radius: 2px; /* Slight rounding of the icon */
 }
 
-/* section 3: testimony */
+/* 
+  Testimony Section:
+  Similar to the skills section with flexbox, aligning person details and text side by side.
+*/
 .testimony-section {
-    padding: 0 50px;
-    margin-bottom: 100px;
+    padding: 0 50px; /* Horizontal padding */
+    margin-bottom: 100px; /* Bottom margin to separate from the next section */
 }
 
 .testimony-section h2 {
-    font-size: 35px;
-    margin-bottom: 30px;
+    font-size: 35px; /* Font size for the section heading */
+    margin-bottom: 30px; /* Add space below the heading */
 }
 
 .testimony-section .group {
-    display: flex;
-    align-items: center;
-    gap: 50px;
+    display: flex; /* Flexbox layout for the testimony group */
+    align-items: center; /* Vertically center the content */
+    gap: 50px; /* Gap between person details and text */
 }
 
 .testimony-section .group .person-details {
-    text-align: center;
-    flex: 2;
+    text-align: center; /* Center the person's details */
+    flex: 2; /* Allow the person details section to take up 2 parts of the available space */
 }
 
 .testimony-section .group .person-details img {
-    width: 200px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 10px;
+    width: 200px; /* Fixed width for person's image */
+    aspect-ratio: 1/1; /* Maintain a square aspect ratio */
+    object-fit: cover; /* Ensure the image covers the area, cropping if necessary */
+    border-radius: 50%; /* Make the image circular */
+    margin-bottom: 10px; /* Space below the image */
 }
 
 .testimony-section .group .person-details p {
-    font-weight: bold;
+    font-weight: bold; /* Make the person's name bold */
 }
 
 .testimony-section .group .person-details p:last-child {
-    font-weight: normal;
+    font-weight: normal; /* Remove bold from the last paragraph (presumably the person's role or message) */
 }
 
 .testimony-section .group .text {
-    flex: 8
+    flex: 8; /* Text section takes up more space */
 }
 
+/* Contact Section Styles */
+.contact-section {
+    padding: 20px;  /* Reduced padding from 30px to 20px */
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    margin-top: 20px;  /* Reduced margin-top to bring section closer to the previous one */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Slightly lighter shadow */
+}
+
+/* Heading of the Contact Section */
+.contact-section h2 {
+    text-align: center;
+    font-size: 28px;  /* Reduced font size from 32px to 28px */
+    color: #333;
+    margin-bottom: 10px;  /* Reduced margin-bottom */
+}
+
+/* Text within the Contact Section */
+.contact-section .text {
+    text-align: center;
+    font-size: 14px;  /* Reduced font size from 16px to 14px */
+    color: #555;
+    margin-bottom: 15px;  /* Reduced margin-bottom */
+}
+
+/* Styling for the Form */
+.contact-section form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;  /* Reduced gap between form elements */
+}
+
+/* Styling for each form input and textarea field */
+.contact-section .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-section .form-group label {
+    font-size: 12px;  /* Reduced font size for labels */
+    color: #333;
+    margin-bottom: 5px;  /* Reduced margin-bottom */
+}
+
+.contact-section .form-group input,
+.contact-section .form-group textarea {
+    padding: 8px;  /* Reduced padding from 10px to 8px */
+    font-size: 12px;  /* Reduced font size from 14px to 12px */
+    border: 1px solid #ddd;
+    border-radius: 4px;  /* Reduced border radius */
+    outline: none;
+    width: 100%;
+}
+
+/* Focus styles for input and textarea */
+.contact-section .form-group input:focus,
+.contact-section .form-group textarea:focus {
+    border-color: #4a76ee;
+    box-shadow: 0 0 4px rgba(74, 118, 238, 0.5);  /* Smaller focus effect */
+}
+
+/* Button styling for submit */
+.contact-section button {
+    background-color: #4a76ee;
+    color: #fff;
+    font-size: 14px;  /* Reduced font size from 16px to 14px */
+    font-weight: 600;
+    padding: 8px 12px;  /* Reduced padding from 10px 15px */
+    border: none;
+    border-radius: 4px;  /* Reduced border radius */
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+/* Button hover effect */
+.contact-section button:hover {
+    background-color: #3759b9;
+}
+
+/* 
+  Media Queries:
+  These are used for making the layout responsive to different screen sizes.
+
+  - max-width: 850px: Adjusts the font size in the intro section.
+  - max-width: 740px: Changes the layout of the intro section (reverse column) and centers the text in the testimony section.
+  - max-width: 600px: Reduces padding and font size in the navbar, intro section, and skills section for smaller screens.
+*/
+
 @media (max-width: 850px) {
-    /*Section 1: Intro*/
     .intro .text h2 {
-        font-size: 35px;
+        font-size: 35px; /* Reduce font size on smaller screens */
     }
 }
 
 @media (max-width: 740px) {
-    /*Section 1: Intro*/
     .intro {
-        flex-direction: column-reverse;
+        flex-direction: column-reverse; /* Stack the intro content in reverse order */
     }
 
     .intro .profilepic img {
-        width: 300px;
+        width: 300px; /* Reduce profile picture size */
     }
 
-    /* Section 3: Testimony */
     .testimony-section {
-        text-align: center;
+        text-align: center; /* Center the content in the testimony section */
     }
 
     .testimony-section .group {
-        flex-direction: column;
+        flex-direction: column; /* Stack the testimony group content vertically */
     }
 }
 
 @media (max-width: 600px) {
-    /*Navbar*/ 
     nav {
-        padding: 0 20px;
+        padding: 0 20px; /* Reduce navbar padding */
     }
 
     nav .right a {
-        font-size: 22px;
+        font-size: 22px; /* Reduce font size for smaller screens */
     }
 
     nav .right a:last-child {
-        color: var(--text-color);
+        color: var(--text-color); /* Reset colors for the last navbar link */
         background-color: transparent;
-        padding: 0;
+        padding: 0; /* Remove padding */
     }
 
     nav .right a span {
-        display: none;
+        display: none; /* Hide span in the navbar for small screens */
     }
 
-    /*Section 1: Intro*/
     .intro {
-        padding: 0 20px;
+        padding: 0 20px; /* Reduce padding in the intro section */
     }
 
     .intro .text h2 {
-        font-size: 30px;
+        font-size: 30px; /* Reduce font size for heading */
     }
 
-    /* section 2: skills */
     .skills-section {
-        padding: 0 20px;
+        padding: 0 20px; /* Reduce padding in the skills section */
     }
 
     .skills-section .cells .cell span {
-        font-size: 16px;
+        font-size: 16px; /* Reduce font size for skill text */
+    }
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    /* Further reduce padding for small screens */
+    .contact-section {
+        padding: 15px;  /* Reduced padding further */
+    }
+
+    /* Adjust input field and textarea size */
+    .contact-section .form-group input,
+    .contact-section .form-group textarea {
+        font-size: 12px;
+        padding: 6px;  /* Reduced padding */
+    }
+
+    /* Make the submit button slightly smaller on mobile */
+    .contact-section button {
+        font-size: 12px;  /* Reduced font size further */
+        padding: 6px 10px;  /* Reduced padding */
     }
 }
